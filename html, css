@@ -1,0 +1,37 @@
+/*html 태그 */ 
+<html>: html 문서라는 것을 명시하는 태그
+<DOC TYPE html> : 관습적 태그
+<head> : html의 부가 정보를 기업하는 영역
+<body>: 문서의 내용이 들어가는 태그(브라우저에 표시될 내용)
+<div>,<section>,<article> : 여러 태그들을 묶어 CSS로 한번에 꾸며주기 위한 태그
+<p>: 단락 태그
+<h1>: 제목 태그
+<meta charset=”UTF-8”>: 문서의 한글 출력하기 위한 태그
+<title>: 웹브라우저의 상단 제목 태그
+<footer>: 화면 하단의 제작, 저작권 정보 태그
+<class> : 이름을 넣기 위한 태그
+<a href> ~</a> : 링크 참조 태그
+<img src= "이미지가 들어간 폴더 이름/이미지명"> : 이미지 첨부 태그
+
+/*(참고 문헌:  박희연, 이지수 ,정상윤, 『일단 만드는 HTML/CSS』 , 삼육대 멋쟁이 사자처럼10기, 2022-05-10)*/
+
+/* css */
+text-align : 글자 배치
+color: 색 지정
+background-color : 배경 색 지정
+font-size : 글씨체 크기
+border : 테두리 지정
+width: 가로길이 지정
+height : 높이 지정
+padding : 테두리와 내용물 사이 간격 지정
+margin : 테두리와 바깥 사이의 간격 지정
+margin-left:auto;
+margin-right: auto; 위 항목과 같이 사용할경우 가운데 배치됨
+font-weight: 글씨체 두께 지정
+box-shadow : 테두리 그림자 지정
+@import url('~') : 외부 링크를 참조
+*{} : 모든 문서에 적용
+font-family: 글꼴 유형 지정
+min-width: fit-content; 내용물을 비트에 맞게 넓이 설정
+float : 내용물을 부유시켜 주세요
+overflow: hidden; 부유의 영향에서 벗어나게 해줘요
