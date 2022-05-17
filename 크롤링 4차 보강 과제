@@ -32,3 +32,20 @@ for article in articles:
     print(str(i) + "번째 기사" +article.get_text(),"\n")
     article_file.write(str(i) + "번째 기사 : " +article.get_text()+"\n")
     i +=1
+    
+
+#함수나 모듈은 뛰어쓰기 안됨
+#BeautifulSoup는 모듈명이 아님 기능명임
+#리퀘스트 함수는 서버에 요청을 보내는 함수임
+#print(response.text[:500]) 500자만 출력
+
+#print(response.text)
+#print(response.url)
+#print(response.encoding) 데이터가 담긴 활당 번호를 알려주는 코드
+#print(response.headers) html의 헤더의 정보를 가져오는 코드
+#파싱은 우리가 가져온 문자열을 의미있는 데이터로 파서는 파이썬의 기본 도구
+
+#print(soup.title)
+#print(soup.title.string) 실제 제목값만 출력
+#print(soup.span)
+#print(soup.findAll('span'))
