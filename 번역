@@ -1,0 +1,13 @@
+#library 모듈을 큰 기능 단위로 묶어 둔것
+#https://py-googletrans.readthedocs.io/en/latest/
+#googletrans 번역/언어 기능을 가진 모듈
+from googletrans import Translator # googletrans 의 Translator(번역기) 기능을 사용
+translator = Translator() #Translator 의 기능을 translator에 저장
+sentence = input("감지할 언어:") # 사용자에게 입력을 제시 후 sentence에 저장
+detected = translator.detect(sentence) #  Translator 기능 안에 있는 detect( 언어를 감지하는 함수) 를 사용하여 sentence의 언어를 감지 후 detected에 저장
+print(detected.lang) #  detected의 언어를 출력
+return =translator.tanslate(text,dest,src) # text ,destination, source Translator 기능에 언어감지도 있어서 source는 안 써줘도 됨, text를 dest로 번역해서 return에 저장
+print(return) # return값이 translated에 담겨서 출력됨
+
+print(detected.lang, ":",sentence) # detected의 언어를 출력, : 출력 , sentence 값 출력
+print(return.dest, ":" , return.text) # return의 목적지 언어 출력 , : 출력, return에 저장된 값을 text의 형태로 출력
