@@ -1,0 +1,23 @@
+#g-mail의 imap 다양한 기기에서 이메일에 엑세스 하고 클라이언트의 이메일과 첨부파일을 저장하기 위함 
+# client -smtp->A sever <-smtp->B server, A server -imap-> client
+# Adress : smtp.gamill.com   서버 주소 ex)집주소
+# port : 465  상세 주소 ex)465호 gmail의 주소에 들어갈려면 465 호로 들어가야함
+#smtp 는 영어만 지원해서 mime(전자메일을 보내기 위한 표준 형식 포맷) 형식으로 전환 해줘야됨
+import smtplib #파이썬 내장모듈 smtp를 다루기 쉽게 해줌
+from email.message import EmailMessage #mime 형식으로 전환해주는 기능
+
+message = EmailMassage() # mime형식으로 전환해주는 통을 message에 저장
+message_set.content("본문에 내용이 나타나게 하는 함수")
+
+smtp_server = smtp.gmail.com
+smtp_port = 465
+
+smtp =smtplib.smtp_ssl(smtp_server,smtp_port) # smtp는 메일 서버에 연결해주는 기능으로 재료로 서버 주소와 포트 번호가 필요 ssl은 gmail에서 아무나 못들어오게 암호화 한것으로 smtp자체에는 ssl이 없어서 smtp_ssl이라 해야함 
+smtp.login(ID ,PW) #gmail에 로그인하기 위해 아이디와 패스워드를 치는듯
+smtp.send_message() #메시지를 보내는 함수
+smtp.quit
+
+#header Subject(제목),From(보내는 사람),To(받는 사람)
+message["Subject"] = "제목"
+message["From"] = "보내는 사람 g-mail"
+message["To"] = "받는 사람 g-mail"
