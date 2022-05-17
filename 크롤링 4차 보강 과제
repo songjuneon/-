@@ -1,49 +1,49 @@
-from re import A
-import requests
-from bs4 import BeautifulSoup
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36'}
+
+import requests #리퀘스트 함수는 서버에 요청을 보내는 함수임
+from bs4 import BeautifulSoup #bs4의 BeautifulSoup 기능을 쓰겠다. 문자열로 된 데이터를 모두 때서 Beautifulsoup 라는 통에 넣어줌
+headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36'} #사용자의 정보 http://www.useragentstring.com/ 밸류값에 넣어주면 됨
  
 
-search = input("검색할 키워드를 입력해주세요")
+search = input("검색할 키워드를 입력해주세요") # 사용자 입력 요구 
 
-page = int(input("크롤링할 페이지(숫자)를 입력해주세요:"))
+page = int(input("크롤링할 페이지(숫자)를 입력해주세요:")) #int 는 문자를 값으로 바꿔주는 기능
 
-page_num =1
-if page :
+page_num =1   
+if page :   #page의 값에 아래 수식을 대입한 것을 page_num에 저장
     page_num =(page-1)*10+1
 
-url =url = "https://search.naver.com/search.naver?where=news&sm=tab_pge&query=" + search + "&start=" + str(page_num)
+url  = "https://search.naver.com/search.naver?where=news&sm=tab_pge&query=" + search + "&start=" + str(page_num)
 
-response = requests.get(url, headers = headers)
-soup = BeautifulSoup(response.text, "html.parser")
+response = requests.get(url, headers = headers)  # url 과 headers를 서버에 요청
+soup = BeautifulSoup(response.text, "html.parser") #문자열로 된 response.text를 따로 때서 BeautifulSoup라는 통에 넣은 것을 soup에 넣겠다, html.parser파이썬에서 제공하는 html을 파싱해주는 모듈입니다.HTML의 구문들을 분석하여 구분해주는 역할을 합니다.
 
-articles =soup.select("div.group_news > ul.list_news >li div.news_area > a")
-# print(articles)
+articles =soup.select("div.group_news > ul.list_news >li div.news_area > a")  # .=class , a > b b가 a 안에 있다. , soup.select(혹은 find) ()안의 태그들을 찾겠다. 
 
-print("네이버에 ", search, "를 검색했을 때의 뉴스 기사",end="\n")
+
+print("네이버에 ", search, "를 검색했을 때의 뉴스 기사",end="\n") #end="\n" 끝에 줄 간격을 바꿔주는 기능
 print(page,"페이지의",end="") #end="" 는 띄어쓰기로 붙여짐
-print(len(articles),"개의 기사가 검색됨", end= "\n\n")
+print(len(articles),"개의 기사가 검색됨", end= "\n\n")  #len은 개수를 세는 함수
 
-article_file = open("article.txt","w", encoding="utf=8")
+article_file = open("article.txt","w", encoding="utf=8") #유니코드를 한글로 인코딩하겠다?, 파일을 만들건데 재료는 article.txt 형식은 write 덮어쓰기 참고로 형식은 r=read a=append가 있음
 
 
 i= 1
-for article in articles:
-    print(str(i) + "번째 기사" +article.get_text(),"\n")
-    article_file.write(str(i) + "번째 기사 : " +article.get_text()+"\n")
-    i +=1
+for article in articles:            #articles의 값을 article 에 반복적으로 넣으면서 실행
+    print(str(i) + "번째 기사" +article.get_text(),"\n") # i를 문자로 가져오고 태그를 제외한 텍스트를 가져와 그후 줄바꿈해 
+    article_file.write(str(i) + "번째 기사 : " +article.get_text()+"\n") #파일에서 위와 같이 실행
+    i +=1 #i=i+1을 축약한 것 i=i-1 을 i-=1로 축약 할 수 있음
     
 
 #함수나 모듈은 뛰어쓰기 안됨
 #BeautifulSoup는 모듈명이 아님 기능명임
-#리퀘스트 함수는 서버에 요청을 보내는 함수임
+
 #print(response.text[:500]) 500자만 출력
 
 #print(response.text)
 #print(response.url)
 #print(response.encoding) 데이터가 담긴 활당 번호를 알려주는 코드
 #print(response.headers) html의 헤더의 정보를 가져오는 코드
-#파싱은 우리가 가져온 문자열을 의미있는 데이터로 파서는 파이썬의 기본 도구
+#웹 파싱은 웹 상의 자연어, 컴퓨터 언어 등의 일련의 문자열들을 분석하는 프로세스입니다, 파서는 이러한 행위를 의미
 
 #print(soup.title)
 #print(soup.title.string) 실제 제목값만 출력
