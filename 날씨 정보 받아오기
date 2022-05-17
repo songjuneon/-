@@ -15,3 +15,9 @@ result = requests.get(api) # api의 값을  가져와서 result 에 저장
 data = json.loads(result.text) # result.txt 를 딕셔너리 형태로 바꿔
 print(data["weather"][0][main]) # data의 weather의 벨류값의 0번째 리스트에서 메인의 벨류값을 출력해
 
+
+city ='Seoul'
+apikey = "9446492661af860487c728631b5106ea"
+lang ="kr"
+
+api = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apikey}&lang={lang}&units=metric" #
