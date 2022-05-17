@@ -23,3 +23,12 @@ articles =soup.select("div.group_news > ul.list_news >li div.news_area > a")
 print("네이버에 ", search, "를 검색했을 때의 뉴스 기사",end="\n")
 print(page,"페이지의",end="") #end="" 는 띄어쓰기로 붙여짐
 print(len(articles),"개의 기사가 검색됨", end= "\n\n")
+
+article_file = open("article.txt","w", encoding="utf=8")
+
+
+i= 1
+for article in articles:
+    print(str(i) + "번째 기사" +article.get_text(),"\n")
+    article_file.write(str(i) + "번째 기사 : " +article.get_text()+"\n")
+    i +=1
