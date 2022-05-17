@@ -17,7 +17,7 @@ url  = "https://search.naver.com/search.naver?where=news&sm=tab_pge&query=" + se
 response = requests.get(url, headers = headers)  # url 과 headers를 서버에 요청
 soup = BeautifulSoup(response.text, "html.parser") #문자열로 된 response.text를 따로 때서 BeautifulSoup라는 통에 넣은 것을 soup에 넣겠다, html.parser파이썬에서 제공하는 html을 파싱해주는 모듈입니다.HTML의 구문들을 분석하여 구분해주는 역할을 합니다.
 
-articles =soup.select("div.group_news > ul.list_news >li div.news_area > a")  # .=class , a > b b가 a 안에 있다. , soup.select(혹은 find) ()안의 태그들을 찾겠다. 
+articles =soup.select("div.group_news > ul.list_news >li div.news_area > a")  # .=class , a > b b가 a 안에 있다. , soup.select(혹은 findAll) ()안의 태그들을 찾겠다. 웹페이지에서 f12키고 마우스 대면 보임
 
 
 print("네이버에 ", search, "를 검색했을 때의 뉴스 기사",end="\n") #end="\n" 끝에 줄 간격을 바꿔주는 기능
