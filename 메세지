@@ -5,6 +5,17 @@
 #smtp 는 영어만 지원해서 mime(전자메일을 보내기 위한 표준 형식 포맷) 형식으로 전환 해줘야됨
 import smtplib #파이썬 내장모듈 smtp를 다루기 쉽게 해줌
 from email.message import EmailMessage #mime 형식으로 전환해주는 기능
+import imghdr # img의 타입을 알게 해줌
+import re # regular expression
+
+def Emailsend(addr): #내가 만든 함수 재료는 주소 함수를 불러올때는 (안에 내 주소 쓰면됨)
+  reg ="^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$ "
+  if bool(re.match(reg,addr):  #bool은 값이 none일때 flas 출력
+    smtp.send_message(message)
+    print("발송됨")
+  else:
+    print("주소오류")
+Emailsend("주소")
 
 message = EmailMassage() # mime형식으로 전환해주는 통을 message에 저장
 message_set.content("본문에 내용이 나타나게 하는 함수")
@@ -13,11 +24,22 @@ smtp_server = smtp.gmail.com
 smtp_port = 465
 
 smtp =smtplib.smtp_ssl(smtp_server,smtp_port) # smtp는 메일 서버에 연결해주는 기능으로 재료로 서버 주소와 포트 번호가 필요 ssl은 gmail에서 아무나 못들어오게 암호화 한것으로 smtp자체에는 ssl이 없어서 smtp_ssl이라 해야함 
-smtp.login(ID ,PW) #gmail에 로그인하기 위해 아이디와 패스워드를 치는듯
-smtp.send_message() #메시지를 보내는 함수
-smtp.quit
+smtp.login(ID ,PW) #gmail에 로그인하기 위해 아이디와 패스워드를 침
+#smtp.send_message(message) #메시지를 보내는 함수, mime형식으로 바꾼(line9) message를 통안에 넣어서 보냄
+smtp.quit 서버와의 연결을 끊어줘
 
 #header Subject(제목),From(보내는 사람),To(받는 사람)
 message["Subject"] = "제목"
 message["From"] = "보내는 사람 g-mail"
 message["To"] = "받는 사람 g-mail"
+
+# image = open("이미지.png" , "rb") # 이미지 혹은 영상 파일을 컴퓨터가 이해 할 수 있게 변환 후 파일을 열어줘 (rb ,wb ,ab) (b는 binary의 약자)
+# print(image.read()) #image 에 read 함수의 결과값을 출력해라
+
+with open("파일","rb") as image # 파일을 rb모드로 열어서 이미지라 부르겠다.
+  image_file = image.read() # image_file 안에 image를 읽은 내용을 담아주겠다.
+image_type = imghdr.what('파일명',image_file) # image_file(실재 데이터)의 유형을 파악해서 image_type에 저장
+massage.add_attachment(image_file,maintype='image',subtype=image_type) # 텍스트를 제외한 유형을 첨부할게요 (첨부할 파일의 내용, 첨부물의 유형 ,첨부물의 확장자(여기서는 pnp))
+# 정규표현(이메일이 유효한지 검사하기 위해) ^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$  시작은 ^ 마지막은 $ 정규표현에서[]는 []안의 문자를 1회 사용함을 의미 +는 여러번 사용을 의미 \는 개행문자를 제외한 문자로의 사용을 의미 {}에 숫자가 사용되면 앞에값은 최솟값 뒤에값은 최대값을 의미
+#reg ="^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$ "
+#print(re.match(reg,"정규표현과 매치하길 원하는 문자열"))
