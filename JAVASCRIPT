@@ -1,0 +1,42 @@
+// 1. let앞에 붙일껄 2 영문,숫자,특수문자 사용, 3.대소문자 구분 4.앞에는 일부 특수문자와 영문만 사용 5. 마지막에는 ;  //let은 재할당 가능, 이미 언급된걸 사용하면 오류 나옴
+// ! enter 기본 골격 만들기
+// 자바 스크립트는 웹브라우저가 실행 완료후 실행됨
+// console.log() 파이썬의 print() 와 같은 기능
+// const 선언은 블록 범위의 상수를 선언합니다 ex) const a= 2;
+// cntrl / 전체 주석
+// === 자료형 데이터까지 구분 !== , ||(or연산자), &&(and 연산자), !(not 연산자)
+// ++x (x를 먼저 1 증가시킨 후 사용) x++(x값을 먼저 사용후 1증가) --x(x를 먼저 1감소시킨 후 사용) x++(x값을 먼저 사용후 1감소)
+//if(조건식){~~;} ,else if(조건식){~~;}, while(조건식){~~; 증감식;} for(변수; 조건식; 증감식){} break;(그 순간 멈춤) continue;(해당 조건의 코드를 생략한다는 의미로 이해하면 쉬움)
+//함수 본문에서 return 명령문에 도달하면 함수의 실행은 그 지점에서 중단됩니다. 값을 제공한 경우 함수를 호출한 곳에 그 값을 반환합니다.
+//function 이름(파라미터){}
+function hello(name){
+console.log(`hello,$name`);
+}
+hello('lion');
+// 객체는 하나의 변수에  여러 정보를 몰아준 것으로 키값과 벨류값으로 구성됨
+const sample= {'키값에 스페이스 바 쓸때는 작은 따움표' :value, key : value2};  //const는 재할당 불가능, 이미 언급된걸 사용하면 오류 나옴
+cosole.log(sampe.key);
+
+const object=[{key1: vl2},{k2:v2}];  // 객체는 여러 자료를 변수하나에 순차적으로 저장 가능
+console.log(object[0]); 
+object.push({k3 : v3}); //오브젝트에 값 추가
+console.log(object);
+console.log(object.length); //오브젝트의 요소값이 몇개인가?
+
+//dom (문서 객체 모델은 XML, HTML 문서의 각 항목을 계층으로 표현하여 생성, 변형, 삭제할 수 있도록 돕는 인터페이스이다. )
+//html
+<ul class="animals">  // <ul> 요소는 정렬되지 않은 목록을 나타냅니다.
+<'li id= "ion">"lion</li>
+</ul>
+// js
+<script src="./practice.js"></script> // practice.js에 연동한다
+document.getElementsByTagName("li")[0].style.color ="red"; // tagname이 li인 요소들 중 0번째 요소에 색 빨강을 부여해라
+document.getElementsById('id값').style.color="red"; //id 요소 중 이름이 id값인 요소를 빨강으로 부여해라
+document.getElementsClassName('클래스 네임')n].style.color="red"; 
+
+document.querySelectorAll('.클래스 네임')[n].style.color="red";  // #id , .classname 규칙인듯 CSS 선택자는 CSS 규칙을 적용할 요소를 정의합니다.
+document.querySelectorAll('.클래스 네임')[n].innerHtml ="바꾸고 싶은 값"; //  '클래스 네임'의 요소 중에 n번째 값을 "바꾸고 싶은 값"으로 변경
+const animals =document.getElementsClassName("animals");  // animals라는 클래스 요소를 가져온 것을 animals 에 저장
+animals.innerHtml +=<li id ="cat">"cat"</li>  // html에 <li>태그의 "cat"추가
+document.querySelectorAll('.클래스 네임')[n].classList.add("~"); //클래스 네임일는 요소에 n번째 인덱싱의 classlist에 ~를 추가
+document.querySelectorAll('.클래스 네임')[n].classList.remove("~");
