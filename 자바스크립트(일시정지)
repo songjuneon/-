@@ -40,3 +40,20 @@ const animals =document.getElementsClassName("animals");  // animals라는 클�
 animals.innerHtml +=<li id ="cat">"cat"</li>  // html에 <li>태그의 "cat"추가
 document.querySelectorAll('.클래스 네임')[n].classList.add("~"); //클래스 네임일는 요소에 n번째 인덱싱의 classlist에 ~를 추가
 document.querySelectorAll('.클래스 네임')[n].classList.remove("~");
+document.querySelectorAll('.클래스 네임')[n].classList.toggle("~"); // on이면 off off면 on
+//버블링의 원리:한 요소에 이벤트가 발생하면, 이 요소에 할당된 핸들러가 동작하고, 이어서 부모 요소의 핸들러가 동작합니다. 가장 최상단의 조상 요소를 만날 때까지 이 과정이 반복되면서 요소 각각에 할당된 핸들러가 동작합니다.
+//캡처링 단계 – 이벤트가 하위 요소로 전파되는 단계
+//EventTarget.addEventListener('eventType',function(){},useCapture); 마지막 부분은 생략하면 버블링 단계에서 이벤트가 포착되고 true라고 적으면 캡처링 단계에서 포착됨
+// document.getElementById("btn").addEventListener("click",function (){
+//     console.log("clck");
+document.querySelectoryAll(".class name").style.display = "block" ;// class name 의 dispaly 를 막겠다
+// });
+// var num= 0;
+//    document.getElementById('plus').addEventListener("click",function (){
+//        num++;
+//        document.getElementById('num').innerHTML = num;
+//    });
+//    document.getElementById('minus').addEventListener("click",function (){
+//     num--;
+//     document.getElementById('num').innerHTML = num;
+// });
