@@ -1,0 +1,66 @@
+파일을 수정, 작성할때 마다 저장 (cntrl s)해줘야 git이 인식할 수 있는 상태가 됨
+버전을 관리하게 위해 사용  전에 했던 버전으로 되돌리거나 다른 모드를 쉽게 적용
+cit Bash 리눅스/맥(유닉스)에서 사용되는 CLI 명령어들을 윈도우에서 사용 가능 - 타 프로그래밍에도 유용
+ SourceTree : Git을 GUI로 다룰 수 있도록 해주는 툴입니다.
+ vscode 는 cntrl `하면 터미널 열림
+ CLI 명령어 입력 GUI 그래픽 사용자 인터페이스
+ git init git에 관리하겠다.
+ git status 현재 파일을 깃의 관점에서 보여줌
+ Git의 관리에서 특정 파일/폴더를 배제해야 할 경우
+a. 포함할 필요가 없을 때
+자동으로 생성 또는 다운로드되는 파일들 (빌드 결과물, 라이브러리)
+b. 포함하지 말아야 할 때
+보안상 민감한 정보를 담은 파일
+.gitignore 안에 배제할 파일 명 입력
+
+# 이렇게 #를 사용해서 주석
+
+# 모든 file.c
+file.c
+
+# 최상위 폴더의 file.c
+/file.c
+
+# 모든 .c 확장자 파일
+*.c
+
+# .c 확장자지만 무시하지 않을 파일
+!not_ignore_this.c
+
+# logs란 이름의 파일 또는 폴더와 그 내용들
+logs
+
+# logs란 이름의 폴더와 그 내용들
+logs/
+
+# logs 폴더 바로 안의 debug.log와 .c 파일들
+logs/debug.log
+logs/*.c
+
+# logs 폴더 바로 안, 또는 그 안의 다른 폴더(들) 안의 debug.log
+logs/**/debug.log
+
+commit == version
+git add 파일명    // 파일 하나를 타임캡슐에 담기
+git add .            // 모든 파일을 타임캡슐에 담기
+
+git commit //타임 캡슐 묻기
+입력 시작	i	명령어 입력 모드에서 텍스트 입력 모드로 전환
+입력 종료	ESC	텍스트 입력 모드에서 명령어 입력 모드로 전환
+저장 없이 종료	:q	
+저장 없이 강제 종료	:q!	입력한 것이 있을 때 사용
+저장하고 종료	:wq	입력한 것이 있을 때 사용
+위로 스크롤	k	git log등에서 내역이 길 때 사용
+아래로 스크롤	j	git log등에서 내역이 길 때 사용
+
+git commit -m "FIRST COMMIT" 이렇게 저장할 수 도 있음
+git log  //확인
+
+git diff로 확인
+위로 스크롤	k	git log등에서 내역이 길 때 사용
+아래로 스크롤	j	git log등에서 내역이 길 때 사용
+끄기	:q	:가 입력되어 있으므로 q만 눌러도 됨
+
+git commit -am "(메시지)" //git add. 와 git commit -m 을 한번에 단, 새로 추가된(untracked) 파일이 없을 때 한정
+reset 은 과거로 돌아가서 이전 행적을 히스토리에서 삭제 revert는 변경된 상황을 없애서 이전 버전과 같게 만드는 것(협업을 하고 있다면 revert를 해서 코드 충돌이 안일어나게)
+git reset --hard (돌아갈 커밋 해시)
