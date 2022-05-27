@@ -32,11 +32,12 @@ node -v //node 버전 확인
 npm install -global yarn //yarn 설치
 yarn --version //yarn 버전 확인
 
-Hello,jsx
-import React from "react";
 
-function Hello(){
-  return <div> Heloo world</div>
- }
- export default Hello;
 
+jsx = java + XML  (XML 태그를 직접 정의 할 수 있음)
+
+하나의 요소로 감싼다.
+<>
+  <div>
+  </div>
+</>
