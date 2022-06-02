@@ -53,6 +53,11 @@ git commit //타임 캡슐 묻기
 위로 스크롤	k	git log등에서 내역이 길 때 사용
 아래로 스크롤	j	git log등에서 내역이 길 때 사용
 
+
+git push
+
+git 홈페이지에서 push코드를 복사한후 vscode에 붙여넣기 
+
 git commit -m "FIRST COMMIT" 이렇게 저장할 수 도 있음
 git log  //확인
 
